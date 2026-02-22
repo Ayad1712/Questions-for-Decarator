@@ -33,16 +33,21 @@ def time_func():
     time.sleep(3)
 time_func()
 #13.
-count = 0
 def count_decorator(func):
+    count = 0
     def counter_wrapper():
+        nonlocal count
         count += 1
+        print("Function was called ", count, " time(s)")
         func()
     return counter_wrapper
 @count_decorator
 def count_func():
-    count += 1
-    print(count)
+    print("Inside the function")
+
+count_func()
+count_func()
+count_func()
 
 
 
@@ -71,3 +76,4 @@ def main3():
     print("Counting teacher...")
     time.sleep(2)
 main3()
+#Global and nonlocal makes variable global (acessible by other functions and used in most topics)
